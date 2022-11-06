@@ -19,12 +19,12 @@ public class EmployeeWageComputationProgram {
             int max_Working_days = scanner.nextInt();
 
             company[i] = new Company(company_Name, wage_Per_Hour, max_Working_Hours, max_Working_days);
-            System.out.println("The Monthly wage of Company " + (i + 1) + " = " + employeeWage(wage_Per_Hour, max_Working_Hours, max_Working_days));
+            System.out.println("The Monthly wage of Company " + (i + 1) + " = " + employeeWage(company[i]));
         }
     }
 
-    static int employeeWage(int wage, int hours, int days) {
-        int wage_Per_Hour = wage;
+    static int employeeWage(Company company) {
+        int wage_Per_Hour = company.wage_Per_Hour;
         int full_Day_Hour = 8;
         int half_Day_Hour = 4;
 
@@ -36,7 +36,7 @@ public class EmployeeWageComputationProgram {
 
         int working_Days_In_Month = 0;
 
-        while (monthly_Hours < hours && working_Days_In_Month < days) {
+        while (monthly_Hours < company.max_Working_Hours && working_Days_In_Month < company.max_Working_days) {
             int random = (int) Math.floor(Math.random() * 3 + 1);
             switch (random) {
                 case 1:
@@ -56,6 +56,7 @@ public class EmployeeWageComputationProgram {
 
             working_Days_In_Month++;
         }
+        company.total_Wage_Paid = monthly_Wage;
         return monthly_Wage;
     }
 }

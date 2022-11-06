@@ -7,6 +7,7 @@ public class EmployeeWageComputationProgram {
         int N = scanner.nextInt();
 
         Company company[] = new Company[N];
+        int employee_Wagesof_MultipleCompanies[] = new int[N];
 
         for (int i = 0; i < N; i++) {
             System.out.println("Enter the company " + (i + 1) + " th name");
@@ -19,7 +20,8 @@ public class EmployeeWageComputationProgram {
             int max_Working_days = scanner.nextInt();
 
             company[i] = new Company(company_Name, wage_Per_Hour, max_Working_Hours, max_Working_days);
-            System.out.println("The Monthly wage of Company " + (i + 1) + " = " + employeeWage(company[i]));
+            employee_Wagesof_MultipleCompanies[i] = employeeWage(company[i]);
+            System.out.println("The Monthly wage of Company " + (i + 1) + " = " +employee_Wagesof_MultipleCompanies[i]);
         }
     }
 

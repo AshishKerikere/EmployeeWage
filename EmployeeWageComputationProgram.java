@@ -1,6 +1,11 @@
 public class EmployeeWageComputationProgram {
     public static void main(String[] args){
 
+        int monthly_Wage = employeeWage();
+        System.out.println("The Wage for month is = " +monthly_Wage);
+    }
+
+    static int employeeWage(){
         int wage_Per_Hour = 20;
         int full_Day_Hour = 8;
         int half_Day_Hour = 4;
@@ -17,11 +22,11 @@ public class EmployeeWageComputationProgram {
             int random = (int)Math.floor(Math.random()*3+1);
             switch (random) {
                 case 1: worked_Hours = 0;
-                        break;
+                    break;
                 case 2: worked_Hours = half_Day_Hour;
-                        break;
+                    break;
                 case 3: worked_Hours = full_Day_Hour;
-                        break;
+                    break;
             }
             wage_For_Day = worked_Hours * wage_Per_Hour;
 
@@ -30,9 +35,6 @@ public class EmployeeWageComputationProgram {
 
             working_Days_In_Month++;
         }
-
-        System.out.println("The Wage for month is = " +monthly_Wage);
-        System.out.println("The Total Number of Working Days in this Month " +working_Days_In_Month);
-        System.out.println("The Total Number of Working Hours in this Month " +monthly_Hours);
+        return monthly_Wage;
     }
 }
